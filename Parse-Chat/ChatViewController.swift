@@ -79,8 +79,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = UITableViewCell()
         
         let message = messageArray[indexPath.row]
-        
-        
         let messageString = message["text"] as? String
         
         if let messageString = messageString {

@@ -63,6 +63,8 @@ class LoginViewController: UIViewController {
             if emailTextField.text! != "" {
                 if let passwordTextField = passwordTextField {
                     if passwordTextField.text! == "" {
+                        emailTextField.endEditing(true)
+                        passwordTextField.endEditing(true)
                         alertMessage(title: "Missing",string: "Please enter a password")
                     } else {
                         user.username = emailTextField.text!
@@ -72,6 +74,8 @@ class LoginViewController: UIViewController {
                             if let error = error {
                                 print(error)
                             } else {
+                                emailTextField.endEditing(true)
+                                passwordTextField.endEditing(true)
                                 self.alertMessage(title: "Congratulations",string: "now Login")
                             }
                         })
@@ -79,9 +83,13 @@ class LoginViewController: UIViewController {
                 }
                 print(emailTextField.text!)
             } else {
+                emailTextField.endEditing(true)
+                passwordTextField.endEditing(true)
                 alertMessage(title: "Missing", string: "Please enter an email address")
                 if let passwordTextField = passwordTextField {
                     if passwordTextField.text! != "" {
+                        emailTextField.endEditing(true)
+                        passwordTextField.endEditing(true)
                         alertMessage(title: "Missing",string: "Please enter a password")
                     }
                     
